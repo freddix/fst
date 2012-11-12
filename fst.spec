@@ -23,6 +23,9 @@ Standalone wrapper for Windows VST plug-ins.
 %prep
 %setup -q
 
+%ifarch %{x8664}
+sed -i "s/m32/m64/g" Makefile
+
 %build
 %{__make} \
 	CC="%{__cc}"				\
